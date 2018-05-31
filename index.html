@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Snake</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://unpkg.com/vue-p5@0.3.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.min.js"></script>
+  <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+</head>
+
+<body>
+  <div class="app">
+    <game-grid v-bind="{size: grid_size, head, tail}" v-on="{move}"></game-grid>
+    <button @click="reset">Reset</button>
+    <label v-if="gameIsOver" class="red">The game is over!</label>
+  </div>
+</body>
+
+<template id="game-grid">
+  <p5 v-bind="{draw, setup}" v-on="{'key-pressed': keyPressed}"></p5>
+</template>
+
+<script src="index.js"></script>
+
+</html>
