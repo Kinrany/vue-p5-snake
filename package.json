@@ -1,0 +1,24 @@
+{
+  "name": "vue-p5-snake",
+  "version": "1.0.0",
+  "description": "Snake written with vue and vue-p5",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kinrany/vue-p5-snake.git"
+  },
+  "keywords": [
+    "vue",
+    "p5js",
+    "game"
+  ],
+  "author": "Ruslan Fadeev",
+  "license": "LGPL-2.1",
+  "bugs": {
+    "url": "https://github.com/kinrany/vue-p5-snake/issues"
+  },
+  "homepage": "https://github.com/kinrany/vue-p5-snake#readme"
+}
