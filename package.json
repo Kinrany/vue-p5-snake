@@ -4,6 +4,8 @@
   "description": "Snake written with vue and vue-p5",
   "private": true,
   "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +22,15 @@
   "bugs": {
     "url": "https://github.com/kinrany/vue-p5-snake/issues"
   },
-  "homepage": "https://github.com/kinrany/vue-p5-snake#readme"
+  "homepage": "https://github.com/kinrany/vue-p5-snake#readme",
+  "dependencies": {
+    "vue": "^2.5.16",
+    "vue-p5": "^0.3.2"
+  },
+  "devDependencies": {
+    "vue-loader": "^15.2.2",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.10.2",
+    "webpack-cli": "^2.1.4"
+  }
 }
