@@ -3,13 +3,14 @@
 </template>
 
 <script>
-import VueP5 from 'vue-p5';
+import VueP5 from "vue-p5";
+import Vector2 from "./Vector2.js"
 
 export default {
   components: {
     p5: VueP5
   },
-  props: ["size", "head", "tail"],
+  props: ["size", "head", "tail", "food"],
   methods: {
     setup(sketch) {
       sketch.resizeCanvas(400, 400);
@@ -22,30 +23,37 @@ export default {
       sketch.strokeWeight(1);
       for (let i = 0; i <= this.size; ++i) {
         // i-th diagonal junction
-        let { x, y } = this.gridToCanvas(sketch, { x: i, y: i });
+        let { x, y } = this.gridToCanvas(sketch, new Vector2(i));
 
         sketch.line(x, 0, x, sketch.height);
         sketch.line(0, y, sketch.width, y);
       }
 
+      // draw food
+      this.food.forEach(f => {
+        let { x, y } = this.gridToCanvas(sketch, f, new Vector2(0.5));
+        sketch.fill("brown");
+        sketch.rect(x-4, y-4, 8, 8);
+      })
+
       // draw tail
       this.tail.forEach(part => {
-        let { x, y } = this.gridToCanvas(sketch, part, { x: 0.5, y: 0.5 });
+        let { x, y } = this.gridToCanvas(sketch, part, new Vector2(0.5));
         sketch.fill("lightblue");
         sketch.ellipse(x, y, 10, 10);
       });
 
       // draw head
-      let { x, y } = this.gridToCanvas(sketch, this.head, { x: 0.5, y: 0.5 });
+      let { x, y } = this.gridToCanvas(sketch, this.head, new Vector2(0.5));
       sketch.fill("blue");
       sketch.ellipse(x, y, 10, 10);
     },
     keyPressed(keyCode) {
       const keys = {
-        87: { x: 0, y: -1 }, // 'w' key
-        65: { x: -1, y: 0 }, // 'a' key
-        83: { x: 0, y: 1 }, // 's' key
-        68: { x: 1, y: 0 } // 'd' key
+        87: new Vector2(0, -1), // 'w' key
+        65: new Vector2(-1, 0), // 'a' key
+        83: new Vector2(0, 1), // 's' key
+        68: new Vector2(1, 0) // 'd' key
       };
       if (keyCode in keys) {
         this.$emit("turn", keys[keyCode]);
