@@ -115,3 +115,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.red {
+  color: red;
+}
+</style>
