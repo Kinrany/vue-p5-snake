@@ -17,7 +17,6 @@ const getDefaultData = () => ({
   head: new Vector2(5, 5),
   direction: new Vector2(1, 0),
   tail: [],
-  length: 10,
   deathByWall: false,
   deathByTail: false,
   food: [],
@@ -32,6 +31,9 @@ export default {
   computed: {
     gameIsOver() {
       return this.deathByWall || this.deathByTail;
+    },
+    length() {
+      return 10 + this.score;
     }
   },
   methods: {
