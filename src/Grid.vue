@@ -12,14 +12,14 @@ export default {
   props: ["size", "head", "tail"],
   methods: {
     setup(sketch) {
-      sketch.resizeCanvas(200, 200);
+      sketch.resizeCanvas(400, 400);
     },
     draw(sketch) {
       sketch.background("darkgreen");
 
       // draw grid
       sketch.stroke("black");
-      sketch.strokeWeight(2);
+      sketch.strokeWeight(1);
       for (let i = 0; i <= this.size; ++i) {
         // i-th diagonal junction
         let { x, y } = this.gridToCanvas(sketch, { x: i, y: i });

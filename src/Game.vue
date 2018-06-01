@@ -10,11 +10,11 @@
 import Grid from "./Grid.vue";
 
 const getDefaultData = () => ({
-  grid_size: 10,
-  head: { x: 2, y: 2 },
+  grid_size: 50,
+  head: { x: 5, y: 5 },
   direction: { x: 1, y: 0 },
   tail: [],
-  length: 5,
+  length: 10,
   deathByWall: false,
   deathByTail: false
 });
@@ -92,7 +92,7 @@ export default {
     }
   },
   mounted() {
-    setInterval(this.update, 100);
+    setInterval(this.update, 50);
   }
 };
 </script>
