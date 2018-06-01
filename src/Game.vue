@@ -2,7 +2,7 @@
   <div>
     Score: {{ score }}
     <grid v-bind="{size: grid_size, head, tail, food}" v-on="{turn}"></grid>
-    <button @click="reset">Reset</button>
+    <button @click="reset">Restart</button>
     <label v-if="gameIsOver" class="red">The game is over!</label>
   </div>
 </template>
