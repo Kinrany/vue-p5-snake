@@ -48,7 +48,7 @@ export default {
         68: { x: 1, y: 0 } // 'd' key
       };
       if (keyCode in keys) {
-        this.$emit("move", keys[keyCode]);
+        this.$emit("turn", keys[keyCode]);
       }
     },
     gridToCanvas(
