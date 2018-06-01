@@ -31,9 +31,9 @@ export default {
 
       // draw food
       this.food.forEach(f => {
-        let { x, y } = this.gridToCanvas(sketch, f).center;
+        const cell = this.gridToCanvas(sketch, f);
         sketch.fill("yellow");
-        sketch.rect(x - 4, y - 4, 8, 8);
+        sketch.rect(cell.topLeft.x, cell.topLeft.y, cell.size.x, cell.size.y);
       });
 
       // draw tail
@@ -70,7 +70,8 @@ export default {
       return {
         topLeft: toCanvas(topLeft),
         center: toCanvas(center),
-        bottomRight: toCanvas(bottomRight)
+        bottomRight: toCanvas(bottomRight),
+        size: new Vector2(width / this.size, height / this.size)
       };
     }
   }
