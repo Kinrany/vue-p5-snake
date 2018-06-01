@@ -20,7 +20,7 @@ export default {
 
       // draw grid
       sketch.stroke("black");
-      sketch.strokeWeight(1);
+      sketch.strokeWeight(0.1);
       for (let i = 0; i <= this.size; ++i) {
         // i-th diagonal junction
         let { x, y } = this.gridToCanvas(sketch, new Vector2(i)).topLeft;
@@ -32,6 +32,7 @@ export default {
       // draw food
       this.food.forEach(f => {
         const cell = this.gridToCanvas(sketch, f);
+        sketch.strokeWeight(0.3);
         sketch.fill("yellow");
         sketch.rect(cell.topLeft.x, cell.topLeft.y, cell.size.x, cell.size.y);
       });
@@ -39,6 +40,7 @@ export default {
       // draw tail
       this.tail.forEach(part => {
         let { x, y } = this.gridToCanvas(sketch, part).center;
+        sketch.strokeWeight(0.6);
         sketch.fill("lightblue");
         sketch.ellipse(x, y, 10, 10);
       });
