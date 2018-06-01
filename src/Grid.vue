@@ -4,7 +4,7 @@
 
 <script>
 import VueP5 from "vue-p5";
-import Vector2 from "./Vector2.js"
+import Vector2 from "./Vector2.js";
 
 export default {
   components: {
@@ -23,7 +23,7 @@ export default {
       sketch.strokeWeight(1);
       for (let i = 0; i <= this.size; ++i) {
         // i-th diagonal junction
-        let { x, y } = this.gridToCanvas(sketch, new Vector2(i));
+        let { x, y } = this.gridToCanvas(sketch, new Vector2(i)).topLeft;
 
         sketch.line(x, 0, x, sketch.height);
         sketch.line(0, y, sketch.width, y);
@@ -31,20 +31,20 @@ export default {
 
       // draw food
       this.food.forEach(f => {
-        let { x, y } = this.gridToCanvas(sketch, f, new Vector2(0.5));
-        sketch.fill("brown");
-        sketch.rect(x-4, y-4, 8, 8);
-      })
+        let { x, y } = this.gridToCanvas(sketch, f).center;
+        sketch.fill("yellow");
+        sketch.rect(x - 4, y - 4, 8, 8);
+      });
 
       // draw tail
       this.tail.forEach(part => {
-        let { x, y } = this.gridToCanvas(sketch, part, new Vector2(0.5));
+        let { x, y } = this.gridToCanvas(sketch, part).center;
         sketch.fill("lightblue");
         sketch.ellipse(x, y, 10, 10);
       });
 
       // draw head
-      let { x, y } = this.gridToCanvas(sketch, this.head, new Vector2(0.5));
+      let { x, y } = this.gridToCanvas(sketch, this.head).center;
       sketch.fill("blue");
       sketch.ellipse(x, y, 10, 10);
     },
@@ -59,14 +59,18 @@ export default {
         this.$emit("turn", keys[keyCode]);
       }
     },
-    gridToCanvas(
-      { width, height },
-      { x: posX, y: posY },
-      { x: offsetX = 0, y: offsetY = 0 } = {}
-    ) {
+    gridToCanvas({ width, height }, position) {
+      const topLeft = position;
+      const center = position.add(new Vector2(0.5));
+      const bottomRight = position.add(new Vector2(1));
+
+      const toCanvas = ({ x, y }) =>
+        new Vector2(x * width / this.size, y * height / this.size);
+
       return {
-        x: (posX + offsetX) * width / this.size,
-        y: (posY + offsetY) * height / this.size
+        topLeft: toCanvas(topLeft),
+        center: toCanvas(center),
+        bottomRight: toCanvas(bottomRight)
       };
     }
   }
