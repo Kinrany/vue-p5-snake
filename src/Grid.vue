@@ -23,31 +23,31 @@ export default {
       sketch.strokeWeight(0.1);
       for (let i = 0; i <= this.size; ++i) {
         // i-th diagonal junction
-        let { x, y } = this.gridToCanvas(sketch, new Vector2(i)).topLeft;
-
+        const { topLeft: { x, y } } = this.gridToCanvas(sketch, new Vector2(i));
         sketch.line(x, 0, x, sketch.height);
         sketch.line(0, y, sketch.width, y);
       }
 
       // draw food
+      sketch.strokeWeight(0.5);
+      sketch.fill("yellow");
       this.food.forEach(f => {
         const cell = this.gridToCanvas(sketch, f);
-        sketch.strokeWeight(0.3);
-        sketch.fill("yellow");
         sketch.rect(cell.topLeft.x, cell.topLeft.y, cell.size.x, cell.size.y);
       });
 
       // draw tail
+      sketch.strokeWeight(1);
+      sketch.fill("lightblue");
       this.tail.forEach(part => {
         const cell = this.gridToCanvas(sketch, part);
-        sketch.strokeWeight(0.6);
-        sketch.fill("lightblue");
         sketch.ellipse(cell.center.x, cell.center.y, cell.size.x, cell.size.y);
       });
 
       // draw head
-      const cell = this.gridToCanvas(sketch, this.head);
+      sketch.strokeWeight(1);
       sketch.fill("blue");
+      const cell = this.gridToCanvas(sketch, this.head);
       sketch.ellipse(cell.center.x, cell.center.y, cell.size.x, cell.size.y);
     },
     keyPressed(keyCode) {
