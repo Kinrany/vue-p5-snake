@@ -13,7 +13,7 @@ import getRandomInt from "./getRandomInt.js";
 import Vector2 from "./Vector2.js";
 
 const getDefaultData = () => ({
-  grid_size: 50,
+  grid_size: 30,
   head: new Vector2(5, 5),
   direction: new Vector2(1, 0),
   tail: [],
