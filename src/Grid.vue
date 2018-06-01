@@ -39,16 +39,16 @@ export default {
 
       // draw tail
       this.tail.forEach(part => {
-        let { x, y } = this.gridToCanvas(sketch, part).center;
+        const cell = this.gridToCanvas(sketch, part);
         sketch.strokeWeight(0.6);
         sketch.fill("lightblue");
-        sketch.ellipse(x, y, 10, 10);
+        sketch.ellipse(cell.center.x, cell.center.y, cell.size.x, cell.size.y);
       });
 
       // draw head
-      let { x, y } = this.gridToCanvas(sketch, this.head).center;
+      const cell = this.gridToCanvas(sketch, this.head);
       sketch.fill("blue");
-      sketch.ellipse(x, y, 10, 10);
+      sketch.ellipse(cell.center.x, cell.center.y, cell.size.x, cell.size.y);
     },
     keyPressed(keyCode) {
       const keys = {
