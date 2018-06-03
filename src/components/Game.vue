@@ -2,7 +2,7 @@
   <div>
     Level: {{ snakeLevel }} <br/>
     Score: {{ score }}
-    <grid v-bind="{size: grid_size, head, tail, food}" v-on="{turn}"></grid>
+    <v-grid v-bind="{size: grid_size, head, tail, food}" v-on="{turn}"></v-grid>
     <button @click="reset">Restart</button>
     <label v-if="gameIsOver" class="red">The game is over!</label>
   </div>
@@ -25,7 +25,7 @@ const getDefaultData = () => ({
 
 export default {
   components: {
-    grid: Grid
+    "v-grid": Grid
   },
   data: getDefaultData,
   computed: {

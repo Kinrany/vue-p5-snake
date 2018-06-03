@@ -1,7 +1,7 @@
 <template>
-  <p5 @draw="draw"
+  <vue-p5 @draw="draw"
       @setup="setup"
-      @key-pressed="keyPressed"></p5>
+      @key-pressed="keyPressed"></vue-p5>
 </template>
 
 <script>
@@ -10,7 +10,7 @@ import Vector2 from "../Vector2.js";
 
 export default {
   components: {
-    p5: VueP5
+    "vue-p5": VueP5
   },
   props: ["size", "head", "tail", "food"],
   methods: {
