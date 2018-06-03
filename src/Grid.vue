@@ -1,5 +1,7 @@
 <template>
-  <p5 v-bind="{draw, setup}" @key-pressed="keyPressed"></p5>
+  <p5 @draw="draw"
+      @setup="setup"
+      @key-pressed="keyPressed"></p5>
 </template>
 
 <script>
@@ -50,7 +52,7 @@ export default {
       const cell = this.gridToCanvas(sketch, this.head);
       sketch.ellipse(cell.center.x, cell.center.y, cell.size.x, cell.size.y);
     },
-    keyPressed(keyCode) {
+    keyPressed({keyCode}) {
       const keys = {
         87: new Vector2(0, -1), // 'w' key
         65: new Vector2(-1, 0), // 'a' key
