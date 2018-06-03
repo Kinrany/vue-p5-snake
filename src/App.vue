@@ -20,6 +20,7 @@ export default {
   methods: {
     addRecord(record) {
       record.id = Math.random();
+      record.name = 'username';
       this.records.push(record);
     }
   }

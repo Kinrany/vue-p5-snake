@@ -43,7 +43,6 @@ export default {
     },
     record() {
       return {
-        name: "username",
         level: this.snakeLevel,
         score: this.score
       };
