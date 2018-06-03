@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Leaderboard</h3>
-    <span v-for="record of topRecords" :key="record.name">
+    <span v-for="record of topRecords" :key="record.id">
       {{ record.name }} | Level: {{ record.level }} | Score: {{ record.score }} <br/>
     </span>
   </div>
