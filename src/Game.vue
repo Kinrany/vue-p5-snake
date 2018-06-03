@@ -18,8 +18,7 @@ const getDefaultData = () => ({
   head: new Vector2(10, 10),
   direction: null,
   tail: [],
-  deathByWall: false,
-  deathByTail: false,
+  gameIsOver: false,
   food: [],
   score: 0
 });
@@ -33,9 +32,6 @@ export default {
     gameStarted() {
       return this.direction !== null;
     },
-    gameIsOver() {
-      return this.deathByWall || this.deathByTail;
-    },
     gameRunning() {
       return this.gameStarted && !this.gameIsOver;
     },
@@ -44,6 +40,13 @@ export default {
     },
     length() {
       return 10 + this.score + this.snakeLevel * 4;
+    },
+    record() {
+      return {
+        name: "username",
+        level: this.snakeLevel,
+        score: this.score
+      };
     }
   },
   methods: {
@@ -68,7 +71,8 @@ export default {
       // game over if bumped into a wall
       {
         if (!new_head.isBetween(new Vector2(0), new Vector2(this.grid_size))) {
-          this.deathByWall = true;
+          4;
+          this.onGameOver();
           return;
         }
       }
@@ -83,7 +87,7 @@ export default {
       // game over if ate own tail
       {
         if (this.tail.find(part => part.isEqual(this.head))) {
-          this.deathByTail = true;
+          this.onGameOver();
           return;
         }
       }
@@ -97,6 +101,10 @@ export default {
           this.food.splice(index, 1);
         }
       }
+    },
+    onGameOver() {
+      this.gameIsOver = true;
+      this.$emit("game-over", this.record);
     },
     spawnFood() {
       while (this.food.length < this.snakeLevel) {
