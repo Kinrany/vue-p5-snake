@@ -36,7 +36,7 @@ export default {
       return this.gameStarted && !this.gameIsOver;
     },
     snakeLevel() {
-      return Math.floor(1 + Math.log(1 + this.score) / Math.log(Math.PI));
+      return Math.floor(Math.sqrt(1 + this.score));
     },
     length() {
       return 10 + this.score + this.snakeLevel * 4;
