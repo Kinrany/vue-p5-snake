@@ -14,7 +14,7 @@ import Vector2 from "./Vector2.js";
 
 const getDefaultData = () => ({
   grid_size: 30,
-  head: new Vector2(5, 5),
+  head: new Vector2(10, 10),
   direction: null,
   tail: [],
   deathByWall: false,
@@ -39,7 +39,7 @@ export default {
       return this.gameStarted && !this.gameIsOver;
     },
     length() {
-      return 10 + this.score;
+      return 10 + this.score * 3;
     }
   },
   methods: {
