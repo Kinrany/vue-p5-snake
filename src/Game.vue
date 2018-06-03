@@ -1,5 +1,6 @@
 <template>
   <div>
+    Level: {{ snakeLevel }} <br/>
     Score: {{ score }}
     <grid v-bind="{size: grid_size, head, tail, food}" v-on="{turn}"></grid>
     <button @click="reset">Restart</button>
@@ -38,8 +39,11 @@ export default {
     gameRunning() {
       return this.gameStarted && !this.gameIsOver;
     },
+    snakeLevel() {
+      return Math.floor(1 + Math.log(1 + this.score) / Math.log(Math.PI));
+    },
     length() {
-      return 10 + this.score * 3;
+      return 10 + this.score + this.snakeLevel * 4;
     }
   },
   methods: {
@@ -95,20 +99,20 @@ export default {
       }
     },
     spawnFood() {
-      this.food.push(
-        new Vector2(
-          getRandomInt(0, this.grid_size),
-          getRandomInt(0, this.grid_size)
-        )
-      );
+      while (this.food.length < this.snakeLevel) {
+        this.food.push(
+          new Vector2(
+            getRandomInt(0, this.grid_size),
+            getRandomInt(0, this.grid_size)
+          )
+        );
+      }
     },
     update() {
       if (this.gameRunning) {
         this.move(this.direction);
       }
-      if (this.food.length === 0) {
-        this.spawnFood();
-      }
+      this.spawnFood();
     },
     reset() {
       Object.assign(this.$data, getDefaultData());
