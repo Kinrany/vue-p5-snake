@@ -15,7 +15,7 @@ import Vector2 from "./Vector2.js";
 const getDefaultData = () => ({
   grid_size: 30,
   head: new Vector2(5, 5),
-  direction: new Vector2(1, 0),
+  direction: null,
   tail: [],
   deathByWall: false,
   deathByTail: false,
@@ -29,8 +29,14 @@ export default {
   },
   data: getDefaultData,
   computed: {
+    gameStarted() {
+      return this.direction !== null;
+    },
     gameIsOver() {
       return this.deathByWall || this.deathByTail;
+    },
+    gameRunning() {
+      return this.gameStarted && !this.gameIsOver;
     },
     length() {
       return 10 + this.score;
@@ -53,10 +59,6 @@ export default {
       this.direction = direction.clone();
     },
     move(direction) {
-      if (this.gameIsOver) {
-        return;
-      }
-
       const new_head = this.head.add(direction);
 
       // game over if bumped into a wall
@@ -101,7 +103,9 @@ export default {
       );
     },
     update() {
-      this.move(this.direction);
+      if (this.gameRunning) {
+        this.move(this.direction);
+      }
       if (this.food.length === 0) {
         this.spawnFood();
       }
