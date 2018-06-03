@@ -6,7 +6,7 @@
 
 <script>
 import VueP5 from "vue-p5";
-import Vector2 from "./Vector2.js";
+import Vector2 from "../Vector2.js";
 
 export default {
   components: {

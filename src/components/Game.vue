@@ -10,8 +10,8 @@
 
 <script>
 import Grid from "./Grid.vue";
-import getRandomInt from "./getRandomInt.js";
-import Vector2 from "./Vector2.js";
+import getRandomInt from "../getRandomInt.js";
+import Vector2 from "../Vector2.js";
 
 const getDefaultData = () => ({
   grid_size: 30,
