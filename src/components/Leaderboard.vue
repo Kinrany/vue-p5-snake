@@ -1,11 +1,7 @@
 <template>
   <div>
     <h3>Leaderboard</h3>
-    <username-input 
-      v-if="records.new" 
-      :record="records.new"
-      @finished="saveNewRecord">
-    </username-input>
+    <username-input v-if="gameResult"></username-input>
     <span v-for="record of topRecords" :key="record.id">
       {{ record.name }} | Level: {{ record.level }} | Score: {{ record.score }} <br/>
     </span>
@@ -20,25 +16,15 @@ export default {
   components: {
     "username-input": UsernameInput
   },
-  props: {
-    records: {
-      type: Object,
-      required: true
-    }
-  },
   computed: {
+    gameResult() {
+      return this.$store.state.gameResult;
+    },
     topRecords() {
-      return this.records.saved
+      return this.$store.state.savedRecords
         .slice()
         .sort((a, b) => b.score - a.score)
         .slice(0, 10);
-    }
-  },
-  methods: {
-    saveNewRecord() {
-      const newRecord = this.records.new;
-      this.records.new = null;
-      this.records.saved.push(newRecord);
     }
   }
 };

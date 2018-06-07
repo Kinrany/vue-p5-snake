@@ -1,17 +1,27 @@
 <template>
   <form @submit.prevent="submit">
-    <input type="text" v-model="record.name"/>
-    | Level: {{ record.level }} | Score: {{ record.score }}
+    <input type="text" v-model="name"/>
+    | Level: {{ gameResult.level }} | Score: {{ gameResult.score }}
   </form>
 </template>
 
 <script>
 export default {
-  props: ["record"],
+  data() {
+    return { name: null }
+  },
+  computed: {
+    gameResult() {
+      return this.$store.state.gameResult;
+    }
+  },
   methods: {
     submit() {
-      this.$emit("finished");
+      this.$store.commit("saveGameResultWithName", this.name);
     }
+  },
+  created() {
+    this.name = `Game ${this.gameResult.id}`;
   }
 };
 </script>
