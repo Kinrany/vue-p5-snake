@@ -20,7 +20,7 @@ export default {
   methods: {
     addRecord(record) {
       record.id = this.records.length;
-      record.name = 'username';
+      record.name = `Game ${record.id + 1}`;
       this.records.push(record);
     }
   }
