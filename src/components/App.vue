@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-game @game-over="addRecord"></v-game>
+    <v-game @game-over="setNewRecord"></v-game>
     <v-leaderboard :records="records"></v-leaderboard>
   </div>
 </template>
@@ -15,13 +15,15 @@ export default {
     "v-leaderboard": Leaderboard
   },
   data: () => ({
-    records: []
+    records: {
+      saved: [],
+      new: null
+    }
   }),
   methods: {
-    addRecord(record) {
-      record.id = this.records.length;
-      record.name = `Game ${record.id + 1}`;
-      this.records.push(record);
+    setNewRecord(newRecord) {
+      newRecord.name = `Game ${this.records.saved.length}`;
+      this.records.new = newRecord;
     }
   }
 };
