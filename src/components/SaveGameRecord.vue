@@ -8,7 +8,7 @@
 <script>
 export default {
   data() {
-    return { name: null }
+    return { name: null };
   },
   computed: {
     gameResult() {
