@@ -23,15 +23,15 @@
   },
   "homepage": "https://github.com/kinrany/vue-p5-snake#readme",
   "dependencies": {
-    "vue": "^2.5.16",
-    "vue-p5": "^0.6.0",
+    "vue": "^2.5.17",
+    "vue-p5": "^0.7.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
     "css-loader": "^0.28.11",
-    "vue-loader": "^15.2.2",
-    "vue-template-compiler": "^2.5.16",
-    "webpack": "^4.10.2",
-    "webpack-cli": "^2.1.4"
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.18.0",
+    "webpack-cli": "^2.1.5"
   }
 }
