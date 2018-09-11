@@ -25,7 +25,7 @@ Then use your favourite static server, like `http-server`:
 
 ```
 npm install --global http-server
-http-server -o http://localhost:8080/index.html
+http-server -o
 ```
 
 ## Build
