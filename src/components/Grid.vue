@@ -1,7 +1,5 @@
 <template>
-  <vue-p5 @draw="draw"
-      @setup="setup"
-      @key-pressed="keyPressed"></vue-p5>
+  <vue-p5 v-on="{ setup, draw, keypressed }"></vue-p5>
 </template>
 
 <script>
@@ -52,7 +50,7 @@ export default {
       const cell = this.gridToCanvas(sketch, this.head);
       sketch.ellipse(cell.center.x, cell.center.y, cell.size.x, cell.size.y);
     },
-    keyPressed({keyCode}) {
+    keypressed({ keyCode }) {
       const keys = {
         87: new Vector2(0, -1), // 'w' key
         65: new Vector2(-1, 0), // 'a' key
