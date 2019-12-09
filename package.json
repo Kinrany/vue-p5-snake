@@ -24,7 +24,7 @@
   "homepage": "https://github.com/kinrany/vue-p5-snake#readme",
   "dependencies": {
     "vue": "^2.6.10",
-    "vue-p5": "^0.8.0-rc4",
+    "vue-p5": "^0.8.2",
     "vuex": "^3.1.2"
   },
   "devDependencies": {
