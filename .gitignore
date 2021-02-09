@@ -66,5 +66,5 @@ typings/
 # Serverless directories
 .serverless
 
-# Pnpm
-pnpm-lock.yaml
+# NPM lock file
+package-lock.json
