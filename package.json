@@ -1,6 +1,5 @@
 {
   "name": "vue-p5-snake",
-  "version": "1.0.0",
   "description": "Snake written with vue and vue-p5",
   "private": true,
   "scripts": {
