@@ -1,6 +1,6 @@
 dependencies:
   vue: 2.6.12
-  vue-p5: 0.9.0-rc2_vue@2.6.12
+  vue-p5: github.com/kinrany/vue-p5/35eff5d6a5de0166306cbb77ac14d113dffcd0e1_vue@2.6.12
   vuex: 3.6.2_vue@2.6.12
 devDependencies:
   css-loader: 5.0.2_webpack@5.21.2
@@ -3399,15 +3399,6 @@ packages:
         optional: true
     resolution:
       integrity: sha512-j0cqiLzwbeImIC6nVIby2o/ABAWhlppyL/m5oJ67R5MloP0hj/DtFgb0Zmq3J9CG7AJ+AXIvHVnJAPBvrLyuDg==
-  /vue-p5/0.9.0-rc2_vue@2.6.12:
-    dependencies:
-      p5: 1.2.0
-      vue: 2.6.12
-    dev: false
-    peerDependencies:
-      vue: ^2.6.11
-    resolution:
-      integrity: sha512-OfGeorUETUWJqMvIA/odkt49eNwX2FYyRsCvIwMn5gprhXrGnKyDtoYO6ZAkSRcYOj2fPgZQSX237FZkQ4m2fw==
   /vue-style-loader/4.1.2:
     dependencies:
       hash-sum: 1.0.2
@@ -3723,11 +3714,23 @@ packages:
       node: '>=10'
     resolution:
       integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+  github.com/kinrany/vue-p5/35eff5d6a5de0166306cbb77ac14d113dffcd0e1_vue@2.6.12:
+    dependencies:
+      p5: 1.2.0
+      vue: 2.6.12
+    dev: false
+    id: github.com/kinrany/vue-p5/35eff5d6a5de0166306cbb77ac14d113dffcd0e1
+    name: vue-p5
+    peerDependencies:
+      vue: ^2.6.11
+    resolution:
+      tarball: https://codeload.github.com/kinrany/vue-p5/tar.gz/35eff5d6a5de0166306cbb77ac14d113dffcd0e1
+    version: 1.0.0-dev
 specifiers:
   css-loader: ^5.0.2
   vue: ^2.6.12
   vue-loader: ^15.9.6
-  vue-p5: ^0.9.0-rc2
+  vue-p5: github:kinrany/vue-p5#stable
   vue-style-loader: ^4.1.2
   vue-template-compiler: ^2.6.12
   vuex: ^3.6.2

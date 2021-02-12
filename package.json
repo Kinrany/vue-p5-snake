@@ -23,7 +23,7 @@
   "homepage": "https://github.com/kinrany/vue-p5-snake#readme",
   "dependencies": {
     "vue": "^2.6.12",
-    "vue-p5": "^0.9.0-rc2",
+    "vue-p5": "github:kinrany/vue-p5#stable",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
